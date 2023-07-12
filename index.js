@@ -10,6 +10,11 @@ async function getWeatherData(city) {
     const response = await fetch(apiURL + city + `&appid=${apiKey}`);
     const data = await response.json();
     console.log(data);
+
+    document.getElementById("temp").innerHTML = data.main.temp + ` °C`;
+    document.getElementById("city").innerHTML = data.name;
+    document.getElementById("humidity").innerHTML = data.main.humidity + `%`;
+    document.getElementById("wind").innerHTML = data.wind.speed + ` km/h`;
   } catch (error) {
     console.log(error);
   }
